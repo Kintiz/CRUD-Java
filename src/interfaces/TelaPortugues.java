@@ -32,6 +32,11 @@ public class TelaPortugues implements Telas{
 
         Scanner scan=new Scanner(System.in);
         String opcao;
+        opcao=scan.nextLine();
+        return opcao;
+
+    }
+    public void print(){
         System.out.println("Digite um numero:");
         System.out.println("1- registrar:");
         System.out.println("2- listar:");
@@ -39,9 +44,6 @@ public class TelaPortugues implements Telas{
         System.out.println("4- deletar:");
         System.out.println("5- sair:");
         
-        opcao=scan.nextLine();
-        return opcao;
-
     }
 
     @Override
@@ -56,6 +58,7 @@ public class TelaPortugues implements Telas{
             String[][] donos=new String[100][10];
             
             do{
+                print();
                 switch(menu()){
     
                     case"1":
@@ -273,11 +276,12 @@ public class TelaPortugues implements Telas{
                         fim=4;
                         break;
                     case"5":
+                        fim=5;
                         break;
                     default:
                         System.out.println("Digite outro numero");
                 }
-            } while(fim>5);
+            } while(fim<5);
             System.out.println("Obrigado por utilizar o programa!");
         
     }
