@@ -29,13 +29,13 @@ public class TelaPortugues implements Telas{
 
     @Override
     public String menu(){
-
         Scanner scan=new Scanner(System.in);
         String opcao;
         opcao=scan.nextLine();
         return opcao;
-
     }
+    
+    @Override
     public void print(){
         System.out.println("Digite um numero:");
         System.out.println("1- registrar:");
@@ -43,7 +43,6 @@ public class TelaPortugues implements Telas{
         System.out.println("3- atualizar:");
         System.out.println("4- deletar:");
         System.out.println("5- sair:");
-        
     }
 
     @Override
