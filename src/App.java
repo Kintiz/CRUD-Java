@@ -100,6 +100,30 @@ public class App {
         }
         */
 
+    public static void telaInicial(){
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Selecione uma tela inicial 1(English) 2(Spanish) 3(Português-BR)");
+        int opcao=scan.nextInt();
+        if(opcao==1){
+            Tela1 tl1 =new Tela1();
+            Programa program =new Programa();
+            program.tela(tl1);
+            program.mensagem(tl1);
+        }else if(opcao==2){
+            Tela2 tl1 =new Tela2();
+            Programa program =new Programa();
+            program.tela(tl1);
+            program.mensagem(tl1);
+        }else if(opcao==3){
+            Tela3 tl1 =new Tela3();
+            Programa program =new Programa();
+            program.tela(tl1);
+            program.mensagem(tl1);
+        }else{
+            System.out.println("Número não encontrado");
+        }
+    }
+
     public static String menu(){
 
         Scanner scan=new Scanner(System.in);
@@ -116,7 +140,7 @@ public class App {
 
     }
 
-    public static void cod(){
+    public static void crud(){
         Scanner scan=new Scanner(System.in);
 
         PessoaDono pessoaDono=new PessoaDono("","", 0, "", (float)0);
@@ -352,7 +376,7 @@ public class App {
         System.out.println("Obrigado por utilizar o programa!");
     }
 
-    public static void inf(){
+    public static void informacoes(){
 
         Scanner scan=new Scanner(System.in);
         String opcao;
@@ -381,8 +405,9 @@ public class App {
 }
 
     public static void main(String[] args) throws Exception {
-        cod();
-        inf();
+        telaInicial();
+        crud();
+        informacoes();
     }
 }
 
