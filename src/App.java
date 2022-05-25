@@ -349,11 +349,40 @@ public class App {
                     System.out.println("Digite outro numero");
             }
         } while(fim<5);
-        System.out.println("Obrigado!");
+        System.out.println("Obrigado por utilizar o programa!");
     }
+
+    public static void inf(){
+
+        Scanner scan=new Scanner(System.in);
+        String opcao;
+
+        do{
+            System.out.println("Deseja ver algumas Informações a mais?");
+            opcao=scan.nextLine();
+                if(opcao.equals("sim")){
+                    System.out.println("Deseja ver as informações do desenvolvedor ou do sistema?");
+                    String opcao1=scan.nextLine();
+                    if(opcao1.equals("desenvolvedor")){
+                        InformacoesDoDesenvolvedor idd=new InformacoesDoDesenvolvedor();
+                        idd.mostrarInformacoes(); 
+
+                    }else if(opcao1.equals("sistema")){
+                        InformacoesDoDesenvolvimento idd=new InformacoesDoDesenvolvimento();
+                        idd.mostrarInformacoes();
+                        idd.mostrarDados();
+                    }
+
+                }else{
+                    System.out.println("Obrigado!");
+                }
+        }while(opcao.equals("sim")==true);
+   
+}
 
     public static void main(String[] args) throws Exception {
         cod();
+        inf();
     }
 }
 
