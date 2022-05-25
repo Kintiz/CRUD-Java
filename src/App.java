@@ -322,7 +322,7 @@ public class App {
 }
 
     public static void main(String[] args) throws Exception {
-        //telaInicial();
+        telaInicial();
         //crud();
         //informacoes();
     }
