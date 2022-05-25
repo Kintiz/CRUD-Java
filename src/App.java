@@ -1,124 +1,43 @@
 import java.util.Scanner;
 
+import interfaces.TelasAcao;
+import objetos.PessoaDono;
+import objetos.PessoaFuncionario;
+import polimorfismo.InformacoesDoDesenvolvedor;
+import polimorfismo.InformacoesDoDesenvolvimento;
+import interfaces.TelaIngles;
+import interfaces.TelaEspanhol;
+import interfaces.TelaPortugues;
+
 public class App {
-
-/* 
-        ArrayList<String> nome = new ArrayList<String>();
-        nome.add("Julio"); // ID 0
-        nome.add("Leon"); // ID 1
-        nome.add("Lucas"); // ID 2
-        nome.add("Paulo"); // ID 3
-        
-        System.out.println("Imprimindo nomes:"); //for que mostra todos os id's
-        for(int id =0;id<nome.size();id++){
-            System.out.println(nome.get(id));
-        }
-
-        System.out.println("Remover"); //remove um dado
-        nome.remove(2);
-
-        
-        for(int id=0;id<nome.size();id++){
-            string element = nome.get(id);
-            System.out.println(element);
-        }
-        
-        System.out.println("Imprimindo nomes:"); //melhor maneira de escrever o for em arraylist
-        for (String element : nome) {
-            System.out.println(element);
-        }
-
-        //nome.clear(); //limpa todos os dados
-*/
-        
-/* 
-        Scanner ler =new Scanner(System.in);
-        ArrayList<String> nome1 = new ArrayList<String>();
-
-        System.out.println("Digite um número:");
-        System.out.println("1- Registrar:");
-        System.out.println("2- Imprimir:");
-        System.out.println("3- Remover:");
-        System.out.println("4- Sair");
-        
-        int c=0;
-        int id=0;
-        c=ler.nextInt();
-            
-        if(c==1){
-
-            //registrar
-            for(id=-1;id<2;id++){
-                System.out.println("Digite um nome:");
-                String nome = ler.next();
-                nome1.add(nome);
-            }
-            
-            //imprimir
-            int ides=-1;
-            for (String element : nome1) {
-                
-                ides++;
-                System.out.println(ides);
-                System.out.println(element);
-            }
-            
-            //remover
-            
-            int r=0;
-            System.out.println("Qual registro você deseja remover?");
-            r = ler.nextInt();
-            nome1.remove(r);
-            //imprimir
-            ides=-1;
-            for (String element : nome1) {
-                
-                ides++;
-                System.out.println(ides);
-                System.out.println(element);
-            } 
-
-            //alterar
-            int a=0;
-            System.out.println("Qual registro voce deseja alterar?");
-            a = ler.nextInt();
-            nome1.remove(a);
-            //registrar
-            System.out.println("Digite um nome");
-            String nome = ler.next();
-            nome1.add(nome);
-            
-
-            //imprimir
-            ides=-1;
-            for (String element : nome1) {
-                
-                ides++;
-                System.out.println(ides);
-                System.out.println(element);
-            }
-        }
-        */
 
     public static void telaInicial(){
         Scanner scan=new Scanner(System.in);
         System.out.println("Selecione uma tela inicial 1(English) 2(Spanish) 3(Português-BR)");
         int opcao=scan.nextInt();
         if(opcao==1){
-            Tela1 tl1 =new Tela1();
-            Programa program =new Programa();
+            TelaIngles tl1 =new TelaIngles();
+            TelasAcao program =new TelasAcao();
             program.tela(tl1);
             program.mensagem(tl1);
+            program.menu(tl1);
+            program.crud(tl1);
+            program.informacoes(tl1);
         }else if(opcao==2){
-            Tela2 tl1 =new Tela2();
-            Programa program =new Programa();
+            TelaEspanhol tl1 =new TelaEspanhol();
+            TelasAcao program =new TelasAcao();
             program.tela(tl1);
             program.mensagem(tl1);
+            program.menu(tl1);
+            program.crud(tl1);
+            program.informacoes(tl1);
         }else if(opcao==3){
-            Tela3 tl1 =new Tela3();
-            Programa program =new Programa();
+            TelaPortugues tl1 =new TelaPortugues();
+            TelasAcao program =new TelasAcao();
             program.tela(tl1);
             program.mensagem(tl1);
+            program.crud(tl1);
+            program.informacoes(tl1);
         }else{
             System.out.println("Número não encontrado");
         }
@@ -405,9 +324,9 @@ public class App {
 }
 
     public static void main(String[] args) throws Exception {
-        telaInicial();
-        crud();
-        informacoes();
+        //telaInicial();
+        //crud();
+        //informacoes();
     }
 }
 

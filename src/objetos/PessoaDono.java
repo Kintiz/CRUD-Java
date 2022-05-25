@@ -1,3 +1,4 @@
+package objetos;
 public class PessoaDono extends Pessoa {
 
     public PessoaDono(String nome,String cargo, int idade, String cnpj, Float valor) {
@@ -20,5 +21,11 @@ public class PessoaDono extends Pessoa {
     }
     public void setValor(Float valor) {
         this.valor = valor;
+    }
+    public String setCnpj() {
+        return cnpj;
+    }
+    public Float setValor() {
+        return valor;
     }
 }

@@ -1,3 +1,4 @@
+package objetos;
 public class PessoaFuncionario extends Pessoa{
 
     public PessoaFuncionario(String nome, String cargo, int idade, String cpf, Float salario) {
@@ -20,5 +21,12 @@ public class PessoaFuncionario extends Pessoa{
     }
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    public String setCpf() {
+        return cpf;
+    }
+    public Double setSalario() {
+        return salario;
     }
 }

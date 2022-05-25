@@ -1,3 +1,4 @@
+package objetos;
 public class Pessoa {
 
     private String nome;
@@ -25,8 +26,18 @@ public class Pessoa {
     public String getCargo() {
         return cargo;
     }
+
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+    public int setIdade() {
+        return idade;
+    }
+    public String setCargo() {
+        return cargo;
+    }
+    public String setNome() {
+        return nome;
     }
 
 }
