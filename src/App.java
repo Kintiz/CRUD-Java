@@ -20,7 +20,6 @@ public class App {
             TelasAcao program =new TelasAcao();
             program.tela(tl1);
             program.mensagem(tl1);
-            program.menu(tl1);
             program.crud(tl1);
             program.informacoes(tl1);
         }else if(opcao==2){
@@ -28,7 +27,6 @@ public class App {
             TelasAcao program =new TelasAcao();
             program.tela(tl1);
             program.mensagem(tl1);
-            program.menu(tl1);
             program.crud(tl1);
             program.informacoes(tl1);
         }else if(opcao==3){
