@@ -31,16 +31,19 @@ public class TelaIngles implements Telas{
 
         Scanner scan=new Scanner(System.in);
         String opcao;
+        opcao=scan.nextLine();
+        return opcao;
+
+    }
+    
+    @Override
+    public void print(){
         System.out.println("Write a number:");
         System.out.println("1- register:");
         System.out.println("2- list:");
         System.out.println("3- update:");
         System.out.println("4- delete:");
         System.out.println("5- exit:");
-        
-        opcao=scan.nextLine();
-        return opcao;
-
     }
 
     @Override
@@ -55,6 +58,7 @@ public class TelaIngles implements Telas{
             String[][] donos=new String[100][10];
             
             do{
+                print();
                 switch(menu()){
     
                     case"1":
@@ -271,11 +275,12 @@ public class TelaIngles implements Telas{
                         fim=4;
                         break;
                     case"5":
+                        fim=5;
                         break;
                     default:
                         System.out.println("Enter another number");
                 }
-            } while(fim>5);
+            } while(fim<5);
             System.out.println("Thank you for using this program!");
         
     }
