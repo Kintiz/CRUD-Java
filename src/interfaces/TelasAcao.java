@@ -20,4 +20,8 @@ public class TelasAcao {
         System.out.println("");
         telas.informacoes();
     }
+    public void print(Telas telas){
+        System.out.println("");
+        telas.print();
+    }
 }
