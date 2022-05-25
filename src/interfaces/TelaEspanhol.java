@@ -29,20 +29,20 @@ public class TelaEspanhol implements Telas {
     
     @Override
     public String menu(){
-
         Scanner scan=new Scanner(System.in);
         String opcao;
+        opcao=scan.nextLine();
+        return opcao;
+    }
+    
+    @Override
+    public void print(){
         System.out.println("Digite um numero:");
         System.out.println("1- registrar:");
         System.out.println("2- listar:");
         System.out.println("3- atualizar:");
         System.out.println("4- deletar:");
         System.out.println("5- sair:");
-        
-        opcao=scan.nextLine();
-        return opcao;
-    
-
     }
 
     @Override
@@ -57,6 +57,7 @@ public class TelaEspanhol implements Telas {
             String[][] donos=new String[100][10];
             
             do{
+                print();
                 switch(menu()){
     
                     case"1":
@@ -274,11 +275,12 @@ public class TelaEspanhol implements Telas {
                         fim=4;
                         break;
                     case"5":
+                        fim=5;
                         break;
                     default:
                         System.out.println("Digite outro numero");
                 }
-            } while(fim>5);
+            } while(fim<5);
             System.out.println("Obrigado por utilizar o programa!");
         
     }
