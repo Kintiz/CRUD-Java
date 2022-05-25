@@ -277,7 +277,7 @@ public class TelaPortugues implements Telas{
                     default:
                         System.out.println("Digite outro numero");
                 }
-            } while(fim<5);
+            } while(fim>5);
             System.out.println("Obrigado por utilizar o programa!");
         
     }
