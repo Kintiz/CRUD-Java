@@ -1,11 +1,15 @@
-import java.util.Scanner;
+import java.util.*;
 
-import interfaces.TelasAcao;
-import interfaces.TelaIngles;
 import interfaces.TelaEspanhol;
+import interfaces.TelaIngles;
 import interfaces.TelaPortugues;
+import interfaces.TelasAcao;
 
 public class App {
+
+    public static void main(String[] args) throws Exception {
+        telaInicial();
+    }
 
     public static void telaInicial(){
         Scanner scan=new Scanner(System.in);
@@ -37,8 +41,5 @@ public class App {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        telaInicial();
-    }
 }
 

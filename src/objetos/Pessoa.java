@@ -39,5 +39,9 @@ public class Pessoa {
     public String setNome() {
         return nome;
     }
+    @Override
+    public String toString(){
+        return "|Nome: "+nome+"|Cargo: "+cargo+"|Idade: "+idade;
+    }
 
 }

@@ -1,4 +1,5 @@
 package objetos;
+
 public class PessoaFuncionario extends Pessoa{
 
     public PessoaFuncionario(String nome, String cargo, int idade, String cpf, Float salario) {
@@ -28,5 +29,9 @@ public class PessoaFuncionario extends Pessoa{
     }
     public Double setSalario() {
         return salario;
+    }
+    @Override
+    public String toString(){
+        return(super.toString()+"|Cpf: "+cpf+"|Salário: "+salario);
     }
 }

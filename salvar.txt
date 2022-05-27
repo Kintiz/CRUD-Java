@@ -1,9 +1,6 @@
 package interfaces;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Scanner;
+import java.util.*;
 
 import objetos.Pessoa;
 import objetos.PessoaDono;
@@ -56,7 +53,10 @@ public class TelaPortugues implements Telas{
         Collection<PessoaDono> dono=new ArrayList<>();
         Collection<PessoaFuncionario> funcionario=new ArrayList<>();
         Scanner scan=new Scanner(System.in);
-        int fim=0;
+
+        String doc, atu, del;
+
+        int fim=0;int i1=0;int id;int id1;
 
         do{
             print();
@@ -70,14 +70,12 @@ public class TelaPortugues implements Telas{
 
                         System.out.println("Registrar:");
                         System.out.println("Digite o nome:");
-                        scan.nextLine();
                         String nome=scan.nextLine();
                         System.out.println("Digite seu cargo:");
                         String cargo=scan.nextLine();
                         System.out.println("Digite sua idade:");
                         int idade=scan.nextInt();
                         System.out.println("Digite seu Cnpj:");
-                        scan.nextLine();
                         String cnpj=scan.nextLine();
                         System.out.println("Digite o valor da sua empresa:");
                         float valor=scan.nextFloat();
@@ -130,7 +128,7 @@ public class TelaPortugues implements Telas{
 
                     } else if(funcao1==2){
 
-                        System.out.println("Funcionarios");
+                        System.out.println("Funcioarios");
                         System.out.println("");
 
                         Iterator<PessoaFuncionario> n=funcionario.iterator();
@@ -152,13 +150,12 @@ public class TelaPortugues implements Telas{
                     System.out.println("Você deseja atualizar um dono(1) ou funcionario(2)?");
                     int funcao2=scan.nextInt();
                     boolean positivo=false;
-                    String cnpjj, cpff;
+                    String cnpj, cpf;
 
                     if(funcao2==1){
 
                         System.out.println("Informe o cnpj do dono a ser atualizado:");
-                        scan.nextLine();
-                        cnpjj=scan.nextLine();
+                        cnpj=scan.nextLine();
 
                         Collection<PessoaDono> lista=new ArrayList<>();
                         Iterator<PessoaDono> i=dono.iterator();
@@ -166,9 +163,9 @@ public class TelaPortugues implements Telas{
                         while(i.hasNext()){
                             PessoaDono temp=i.next();
 
-                          if(temp.getCnpj().equals(cnpjj)){
+                          if(temp.getCnpj().equals(cnpj)){
 
-                            System.out.println("Atualizar:");
+                            System.out.println("Registrar:");
                             System.out.println("Digite o nome:");
                             String nome=scan.nextLine();
                             System.out.println("Digite seu cargo:");
@@ -176,12 +173,11 @@ public class TelaPortugues implements Telas{
                             System.out.println("Digite sua idade:");
                             int idade=scan.nextInt();
                             System.out.println("Digite seu Cnpj:");
-                            scan.nextLine();
-                            String cnpj=scan.nextLine();
+                            String cnpjj=scan.nextLine();
                             System.out.println("Digite o valor da sua empresa:");
                             float valor=scan.nextFloat();
     
-                            PessoaDono dados=new PessoaDono(nome, cargo, idade, cnpj, valor);
+                            PessoaDono dados=new PessoaDono(nome, cargo, idade, cnpjj, valor);
                             lista.add(dados);
                             positivo=true;
                             
@@ -189,9 +185,6 @@ public class TelaPortugues implements Telas{
                                 lista.add(temp);
                             }
                             dono=lista;
-                            
-                            System.out.println("");
-                            System.out.println("Alteração realizada com sucesso");
                         }
 
                         if(!positivo){
@@ -201,8 +194,7 @@ public class TelaPortugues implements Telas{
                     } else if(funcao2==2){
 
                         System.out.println("Informe o cpf do funcionario a ser atualizado:");
-                        scan.nextLine();
-                        cpff=scan.nextLine();
+                        cpf=scan.nextLine();
 
                         Collection<PessoaFuncionario> lista1=new ArrayList<>();
                         Iterator<PessoaFuncionario> n=funcionario.iterator();
@@ -210,9 +202,9 @@ public class TelaPortugues implements Telas{
                         while(n.hasNext()){
                             PessoaFuncionario temp=n.next();
 
-                          if(temp.getCpf().equals(cpff)){
+                          if(temp.getCpf().equals(cpf)){
 
-                            System.out.println("Atualizar:");
+                            System.out.println("Registrar:");
                             System.out.println("Digite o nome:");
                             String nome=scan.nextLine();
                             System.out.println("Digite seu cargo:");
@@ -220,17 +212,13 @@ public class TelaPortugues implements Telas{
                             System.out.println("Digite sua idade:");
                             int idade=scan.nextInt();
                             System.out.println("Digite seu cpf:");
-                            scan.nextLine();
-                            String cpf=scan.nextLine();
+                            String cpff=scan.nextLine();
                             System.out.println("Digite o seu salario:");
                             float salario=scan.nextFloat();
     
-                            PessoaFuncionario dados=new PessoaFuncionario(nome, cargo, idade, cpf, salario);
+                            PessoaFuncionario dados=new PessoaFuncionario(nome, cargo, idade, cpff, salario);
                             lista1.add(dados);
                             positivo=true;
-                            
-                            System.out.println("");
-                            System.out.println("Alteração realizada com sucesso");
                             
                             } else{
                                 lista1.add(temp);
@@ -243,37 +231,38 @@ public class TelaPortugues implements Telas{
                         }
                     }
                     
+                        System.out.println("");
+                        System.out.println("Alteração realizada com sucesso");
+                    
                     fim=3;
                     break;
                 case"4":
-                    boolean positivo1=false;
-                    String cnpjj1, cpff1;
+
                     System.out.println("Você deseja deletar um dono(1) ou funcionario(2)?");
                     int funcao3=scan.nextInt();
                     if(funcao3==1){
                         System.out.println("Qual o Cnpj do dono que você deseja deletar?");
-                        cnpjj1=scan.nextLine();
-                        cnpjj1=scan.nextLine();
+                        cnpj=scan.nextLine();
+                        scan.nextLine();
 
                         Iterator<PessoaDono> i=dono.iterator();
 
                         while(i.hasNext()){
                             PessoaDono temp=i.next();
 
-                            if(temp.getCnpj().equals(cnpjj1)){
+                            if(temp.getCnpj().equals(cnpj)){
                                 i.remove();
-                                positivo1=true;
-                                System.out.println("Pessoa Deletada!");
+                                positivo=true;
                             }
                         }
-                        if(!positivo1){
+                        if(!positivo){
                             System.out.println("Cnpj não existe");
                         }
 
                     } else if(funcao3==2){
 
                         System.out.println("Qual o cpf do funcionario que você deseja deletar?");
-                        cpff1=scan.nextLine();
+                        cpf=scan.nextLine();
                         scan.nextLine();
 
                         Iterator<PessoaFuncionario> n=funcionario.iterator();
@@ -281,13 +270,12 @@ public class TelaPortugues implements Telas{
                         while(n.hasNext()){
                             PessoaFuncionario temp=n.next();
 
-                            if(temp.getCpf().equals(cpff1)){
+                            if(temp.getCpf().equals(cpf)){
                                 n.remove();
-                                positivo1=true;
-                                System.out.println("Pessoa Deletada!");
+                                positivo=true;
                             }
                         }
-                        if(!positivo1){
+                        if(!positivo){
                             System.out.println("Cpf não existe");
                         }
                         
@@ -295,7 +283,7 @@ public class TelaPortugues implements Telas{
                         System.out.println("Função não encontrada");
                     }
 
-                    
+                    System.out.println("Pessoa Deletada!");
                     fim=4;
                     break;
                 case"5":
@@ -338,4 +326,5 @@ public class TelaPortugues implements Telas{
         }while(opcao.equals("sim")==true);
    
     }
+
 }

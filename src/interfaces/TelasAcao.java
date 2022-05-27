@@ -1,4 +1,5 @@
 package interfaces;
+
 public class TelasAcao {
 
     public void tela(Telas telas){

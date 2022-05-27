@@ -1,4 +1,5 @@
 package objetos;
+
 public class PessoaDono extends Pessoa {
 
     public PessoaDono(String nome,String cargo, int idade, String cnpj, Float valor) {
@@ -27,5 +28,9 @@ public class PessoaDono extends Pessoa {
     }
     public Float setValor() {
         return valor;
+    }
+    @Override
+    public String toString(){
+        return(super.toString()+"|Cnpj: "+cnpj+"|Valor: "+valor);
     }
 }
