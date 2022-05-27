@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Scanner;
 
-import objetos.Pessoa;
 import objetos.PessoaDono;
 import objetos.PessoaFuncionario;
 import polimorfismo.InformacoesDoDesenvolvedor;

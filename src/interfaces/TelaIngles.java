@@ -1,5 +1,8 @@
 package interfaces;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import objetos.PessoaDono;
@@ -48,241 +51,267 @@ public class TelaIngles implements Telas{
 
     @Override
     public void crud(){
-            Scanner scan=new Scanner(System.in);
-    
-            PessoaDono pessoaDono=new PessoaDono("","", 0, "", (float)0);
-            PessoaFuncionario pessoaFuncionario=new PessoaFuncionario("","", 0, "", (float)0);
-    
-            int fim=0;int i=0;int i1=0;int atu=0;int del=0;int id;int id1;
-            String[][] funcionarios=new String[100][10];
-            String[][] donos=new String[100][10];
-            
-            do{
-                print();
-                switch(menu()){
-    
-                    case"1":
-                        System.out.println("Are you a owner(1) or employee(2)?");
-                        int funcao=scan.nextInt();
-    
-                        if(funcao==1){
-                            System.out.println("Register:");
-                            System.out.println("Enter a name:");
-                            scan.nextLine();
+
+        Collection<PessoaDono> dono=new ArrayList<>();
+        Collection<PessoaFuncionario> funcionario=new ArrayList<>();
+        Scanner scan=new Scanner(System.in);
+        int fim=0;
+
+        do{
+            print();
+            switch(menu()){
+
+                case"1":
+                    System.out.println("You are the owner(1) or employee(2)?");
+                    int funcao=scan.nextInt();
+
+                    if(funcao==1){
+
+                        System.out.println("Register:");
+                        System.out.println("Enter your name:");
+                        scan.nextLine();
+                        String nome=scan.nextLine();
+                        System.out.println("Enter your profession:");
+                        String cargo=scan.nextLine();
+                        System.out.println("Enter your age:");
+                        int idade=scan.nextInt();
+                        System.out.println("Enter your Cnpj:");
+                        scan.nextLine();
+                        String cnpj=scan.nextLine();
+                        System.out.println("Enter your company value:");
+                        float valor=scan.nextFloat();
+
+                        PessoaDono donos=new PessoaDono(nome, cargo, idade, cnpj, valor);
+                        dono.add(donos);
+
+                        System.out.println("********************");
+                        System.out.println("Success!");
+
+                    }else if (funcao==2){
+                        System.out.println("Register:");
+                        System.out.println("Enter your name:");
+                        scan.nextLine();
+                        String nome=scan.nextLine();
+                        System.out.println("Enter your profession:");
+                        String cargo=scan.nextLine();
+                        System.out.println("Enter your age:");
+                        int idade=scan.nextInt();
+                        System.out.println("Enter yout Cpf:");
+                        scan.nextLine();
+                        String cpf=scan.nextLine();
+                        System.out.println("Enter your salary:");
+                        float salario=scan.nextFloat();
+
+                        PessoaFuncionario funcionarios=new PessoaFuncionario(nome, cargo, idade, cpf, salario);
+                        funcionario.add(funcionarios);
+
+                        System.out.println("********************");
+                        System.out.println("Success!");
+
+                    }else {
+                        System.out.println("Function not found");
+                    }
+                    fim =1;
+                        
+                break;
+
+                case"2":
+
+                    System.out.println("Do you want to print the owner(1) or employee(2) list?");
+                    int funcao1=scan.nextInt(); 
+
+                    if(funcao1==1){
+                        System.out.println("Owners:");
+                        System.out.println("");
+                        Iterator<PessoaDono> i=dono.iterator();
+
+                        while(i.hasNext()){
+                            PessoaDono temp=i.next();
+                            System.out.println(temp.toString());
+                        }
+                        System.out.println("");
+                        System.out.println("********************");
+
+                    } else if(funcao1==2){
+
+                        System.out.println("Employeers");
+                        System.out.println("");
+
+                        Iterator<PessoaFuncionario> n=funcionario.iterator();
+                        while(n.hasNext()){
+                            PessoaFuncionario temp=n.next();
+                            System.out.println(temp.toString());
+                        }
+                        System.out.println("");
+                        System.out.println("********************");
+
+                    } else {
+                        System.out.println("Function not found");
+                    }
+                    
+                    fim=2;
+                    break;
+                case"3":
+                    System.out.println("You want to update an owner(1) or employee(2)?");
+                    int funcao2=scan.nextInt();
+                    boolean positivo=false;
+                    String cnpjj, cpff;
+
+                    if(funcao2==1){
+
+                        System.out.println("Inform the owner's cnpj to be updated:");
+                        scan.nextLine();
+                        cnpjj=scan.nextLine();
+
+                        Collection<PessoaDono> lista=new ArrayList<>();
+                        Iterator<PessoaDono> i=dono.iterator();
+
+                        while(i.hasNext()){
+                            PessoaDono temp=i.next();
+
+                          if(temp.getCnpj().equals(cnpjj)){
+
+                            System.out.println("Update:");
+                            System.out.println("Enter your name:");
                             String nome=scan.nextLine();
-                            pessoaDono.setNome(nome);
-                            System.out.println("Enter a office:");
+                            System.out.println("Enter your profession:");
                             String cargo=scan.nextLine();
-                            pessoaDono.setCargo(cargo);
-                            System.out.println("Enter a age:");
+                            System.out.println("Enter your age:");
                             int idade=scan.nextInt();
-                            pessoaDono.setIdade(idade);
-                            System.out.println("Enter a cnpj:");
+                            System.out.println("Enter your Cnpj:");
                             scan.nextLine();
                             String cnpj=scan.nextLine();
-                            pessoaDono.setCnpj(cnpj);
-                            System.out.println("Enter a company value:");
+                            System.out.println("Enter your company value:");
                             float valor=scan.nextFloat();
-                            pessoaDono.setValor(valor);
     
-                            id=i;
-                            donos[i][0] ="ID: "+Integer.toString(id);
-                            donos[i][1] ="Name: "+pessoaDono.getNome();
-                            donos[i][2] ="Office: "+pessoaDono.getCargo();
-                            donos[i][3] ="Age: "+pessoaDono.getIdade();
-                            donos[i][4] ="Cnpj: "+pessoaDono.getCnpj();
-                            donos[i][5] ="Company value: "+pessoaDono.getValor();
-    
-                        }else if (funcao==2){
-                            System.out.println("Register:");
-                            System.out.println("Enter a name:");
-                            scan.nextLine();
+                            PessoaDono dados=new PessoaDono(nome, cargo, idade, cnpj, valor);
+                            lista.add(dados);
+                            positivo=true;
+                            
+                            System.out.println("");
+                            System.out.println("Sucess update!");
+                            
+                            } else{
+                                lista.add(temp);
+                            }
+                            dono=lista;
+                            
+                        }
+
+                        if(!positivo){
+                            System.out.println("Cnpj not found");
+                        }
+                        
+                    } else if(funcao2==2){
+
+                        System.out.println("Inform the employeer's cpf to be updated:");
+                        scan.nextLine();
+                        cpff=scan.nextLine();
+
+                        Collection<PessoaFuncionario> lista1=new ArrayList<>();
+                        Iterator<PessoaFuncionario> n=funcionario.iterator();
+
+                        while(n.hasNext()){
+                            PessoaFuncionario temp=n.next();
+
+                          if(temp.getCpf().equals(cpff)){
+
+                            System.out.println("Update:");
+                            System.out.println("Enter your name:");
                             String nome=scan.nextLine();
-                            pessoaFuncionario.setNome(nome);
-                            System.out.println("Enter a office:");
+                            System.out.println("Enter your profession:");
                             String cargo=scan.nextLine();
-                            pessoaFuncionario.setCargo(cargo);
-                            System.out.println("Enter a age:");
+                            System.out.println("Enter your age:");
                             int idade=scan.nextInt();
-                            pessoaFuncionario.setIdade(idade);
-                            System.out.println("Enter a cpf:");
+                            System.out.println("Enter yout Cpf:");
                             scan.nextLine();
                             String cpf=scan.nextLine();
-                            pessoaFuncionario.setCpf(cpf);
                             System.out.println("Enter your salary:");
                             float salario=scan.nextFloat();
-                            pessoaFuncionario.setSalario(salario);
     
-                            id1=i;
-                            funcionarios[i][0] ="ID: "+Integer.toString(id1);
-                            funcionarios[i][1] ="Name: "+pessoaFuncionario.getNome();
-                            funcionarios[i][2] ="Office: "+pessoaFuncionario.getCargo();
-                            funcionarios[i][3] ="Age: "+pessoaFuncionario.getIdade();
-                            funcionarios[i][4] ="Cpf: "+pessoaFuncionario.getCpf();
-                            funcionarios[i][5] ="Salary: "+pessoaFuncionario.getSalario();
-                        }else {
-                            System.out.println("Function not found");
+                            PessoaFuncionario dados=new PessoaFuncionario(nome, cargo, idade, cpf, salario);
+                            lista1.add(dados);
+                            positivo=true;
+                            
+                            System.out.println("");
+                            System.out.println("Sucess update!");
+                            
+                            } else{
+                                lista1.add(temp);
+                            }
+                            funcionario=lista1;
                         }
-                        i++;
-                        fim =1;
-                        System.out.println("Sucess!");
+
+                        if(!positivo){
+                            System.out.println("Cpf not found");
+                        }
+                    }
+                    
+                    fim=3;
                     break;
+                case"4":
+                    boolean positivo1=false;
+                    String cnpjj1, cpff1;
+                    System.out.println("You want to delete an owner(1) or employee(2)?");
+                    int funcao3=scan.nextInt();
+                    if(funcao3==1){
+                        System.out.println("What is the cnpj of the owner you want to delete?");
+                        cnpjj1=scan.nextLine();
+                        cnpjj1=scan.nextLine();
+
+                        Iterator<PessoaDono> i=dono.iterator();
+
+                        while(i.hasNext()){
+                            PessoaDono temp=i.next();
+
+                            if(temp.getCnpj().equals(cnpjj1)){
+                                i.remove();
+                                positivo1=true;
+                                System.out.println("Success people deleted!");
+                            }
+                        }
+                        if(!positivo1){
+                            System.out.println("Cnpj not found");
+                        }
+
+                    } else if(funcao3==2){
+
+                        System.out.println("What is the cpf of the employee you want to delete?");
+                        cpff1=scan.nextLine();
+                        cpff1=scan.nextLine();
+
+                        Iterator<PessoaFuncionario> n=funcionario.iterator();
+
+                        while(n.hasNext()){
+                            PessoaFuncionario temp=n.next();
+
+                            if(temp.getCpf().equals(cpff1)){
+                                n.remove();
+                                positivo1=true;
+                                System.out.println("Success, people deleted!");
+                            }
+                        }
+                        if(!positivo1){
+                            System.out.println("Cpf not found");
+                        }
+                        
+                    } else{
+                        System.out.println("Function not found");
+                    }
+
+                    
+                    fim=4;
+                    break;
+                case"5":
+                
+                    fim=5;
+                    break;
+                default:
+                    System.out.println("Enter another number");
+            }
+        } while(fim<5);
+        System.out.println("Thank you for using this program!");
     
-                    case"2":
-                        System.out.println("Want to print a owner(1) or employee(2)?");
-                        int funcao1=scan.nextInt();
-                        if(funcao1==1){
-                            System.out.println("List of owners:");
-                            for(int l=0;l<donos.length;l++){
-                                for(int c=0;c<donos[c].length;c++){
-                                    if(donos[l][c] !=null){
-                                        if(c<6){
-                                            System.out.println("- "+donos[l][c]);
-                                        }
-                                    }else{
-                                        break;
-                                    }
-                                }
-                            }
-                        } else if(funcao1==2){
-                            System.out.println("List of employeers:");
-                            for(int l=0;l<funcionarios.length;l++){
-                                for(int c=0;c<funcionarios[c].length;c++){
-                                    if(funcionarios[l][c] !=null){
-                                        if(c<6){
-                                            System.out.println("- "+funcionarios[l][c]);
-                                        }
-                                    }else{
-                                        break;
-                                    }
-                                }
-                            }
-                        } else {
-                            System.out.println("Function not found");
-                        }
-                        
-                        System.out.println("Full view");
-                        fim=2;
-                        break;
-                    case"3":
-                        System.out.println("Want update a owner(1) or employee(2)?");
-                        int funcao2=scan.nextInt();
-                        if(funcao2==1){
-                            System.out.println("Enter a ID to be updated:");
-                            atu=scan.nextInt();
-                            scan.nextLine();
-                            if(atu<i){
-                                System.out.println("Register:");
-                                System.out.println("Enter a name:");
-                                String nome=scan.nextLine();
-                                pessoaDono.setNome(nome);
-                                System.out.println("Enter a office:");
-                                String cargo=scan.nextLine();
-                                pessoaDono.setCargo(cargo);
-                                System.out.println("Enter a age:");
-                                int idade=scan.nextInt();
-                                pessoaDono.setIdade(idade);
-                                System.out.println("Enter a cnpj:");
-                                scan.nextLine();
-                                String cnpj=scan.nextLine();
-                                pessoaDono.setCnpj(cnpj);
-                                System.out.println("Enter a company value:");
-                                float valor=scan.nextFloat();
-                                pessoaDono.setValor(valor);
-        
-                                id=i;
-                                donos[i][0] ="ID: "+Integer.toString(id);
-                                donos[i][1] ="Name: "+pessoaDono.getNome();
-                                donos[i][2] ="Office: "+pessoaDono.getCargo();
-                                donos[i][3] ="Age: "+pessoaDono.getIdade();
-                                donos[i][4] ="Cnpj: "+pessoaDono.getCnpj();
-                                donos[i][5] ="Company value: "+pessoaDono.getValor();
-                            } else{
-                                System.out.println("ID don't exist");
-                            }
-                        } else if(funcao2==2){
-                            System.out.println("Enter a ID to be updated:");
-                            atu=scan.nextInt();
-                            scan.nextLine();
-                            if(atu<i){
-                                System.out.println("Register:");
-                                System.out.println("Enter a name:");
-                                String nome=scan.nextLine();
-                                pessoaFuncionario.setNome(nome);
-                                System.out.println("Enter a office:");
-                                String cargo=scan.nextLine();
-                                pessoaFuncionario.setCargo(cargo);
-                                System.out.println("Enter a age:");
-                                int idade=scan.nextInt();
-                                pessoaFuncionario.setIdade(idade);
-                                System.out.println("Enter a cpf:");
-                                scan.nextLine();
-                                String cpf=scan.nextLine();
-                                pessoaFuncionario.setCpf(cpf);
-                                System.out.println("Enter your salary:");
-                                float salario=scan.nextFloat();
-                                pessoaFuncionario.setSalario(salario);
-    
-                                id1=i;
-                                funcionarios[i][0] ="ID: "+Integer.toString(id1);
-                                funcionarios[i][1] ="Name: "+pessoaFuncionario.getNome();
-                                funcionarios[i][2] ="Office: "+pessoaFuncionario.getCargo();
-                                funcionarios[i][3] ="Age: "+pessoaFuncionario.getIdade();
-                                funcionarios[i][4] ="Cpf: "+pessoaFuncionario.getCpf();
-                                funcionarios[i][5] ="Salary: "+pessoaFuncionario.getSalario();
-                            } else{
-                                System.out.println("ID não existe");
-                            }
-                        } else{
-                            System.out.println("Function not found");
-                        }
-                        
-                        fim=3;
-                        break;
-                    case"4":
-                        System.out.println("You want to delete a owner(1) or employee(2)?");
-                        int funcao3=scan.nextInt();
-                        if(funcao3==1){
-                            System.out.println("Whos ID you want to delete?");
-                            del=scan.nextInt();
-                            scan.nextLine();
-                            if(del<i && donos[del][0] !=null){
-                                donos[del][0] = null;
-                                donos[del][1] = null;
-                                donos[del][2] = null;
-                                donos[del][3] = null;
-                                System.out.println("informations deleted");
-                            } else{
-                                System.out.println("ID dont exist");
-                            }
-                        } else if(funcao3==2){
-                            System.out.println("Whos ID you want to delete?");
-                            del=scan.nextInt();
-                            scan.nextLine();
-                            if(del<i && funcionarios[del][0] !=null){
-                                funcionarios[del][0] = null;
-                                funcionarios[del][1] = null;
-                                funcionarios[del][2] = null;
-                                funcionarios[del][3] = null;
-                                System.out.println("informations deleted");
-                            } else{
-                                System.out.println("ID não existe");
-                            }
-                        } else{
-                            System.out.println("Function not found");
-                        }
-                        
-                        fim=4;
-                        break;
-                    case"5":
-                        fim=5;
-                        break;
-                    default:
-                        System.out.println("Enter another number");
-                }
-            } while(fim<5);
-            System.out.println("Thank you for using this program!");
-        
     }
 
     @Override
