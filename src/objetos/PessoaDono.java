@@ -31,6 +31,6 @@ public class PessoaDono extends Pessoa {
     }
     @Override
     public String toString(){
-        return(super.toString()+"|Cnpj: "+cnpj+"|Valor: "+valor);
+        return(super.toString()+"-Cnpj: "+cnpj+"\n-Valor: "+valor);
     }
 }

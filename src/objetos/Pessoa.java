@@ -41,7 +41,7 @@ public class Pessoa {
     }
     @Override
     public String toString(){
-        return "|Nome: "+nome+"|Cargo: "+cargo+"|Idade: "+idade;
+        return "-Nome: "+nome+"\n-Cargo: "+cargo+"\n-Idade: "+idade;
     }
 
 }

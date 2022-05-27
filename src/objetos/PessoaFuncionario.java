@@ -32,6 +32,6 @@ public class PessoaFuncionario extends Pessoa{
     }
     @Override
     public String toString(){
-        return(super.toString()+"|Cpf: "+cpf+"|Salário: "+salario);
+        return(super.toString()+"-Cpf: "+cpf+"\n-Salário: "+salario);
     }
 }

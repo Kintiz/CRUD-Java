@@ -40,12 +40,12 @@ public class TelaEspanhol implements Telas {
     
     @Override
     public void print(){
-        System.out.println("Digite um numero:");
-        System.out.println("1- registrar:");
-        System.out.println("2- listar:");
-        System.out.println("3- atualizar:");
-        System.out.println("4- deletar:");
-        System.out.println("5- sair:");
+        System.out.println("Escriba un numero:");
+        System.out.println("1- Registro:");
+        System.out.println("2- Litar:");
+        System.out.println("3- Actualizar:");
+        System.out.println("4- Eliminar:");
+        System.out.println("5- Salir:");
     }
 
     @Override
@@ -276,7 +276,7 @@ public class TelaEspanhol implements Telas {
 
                         System.out.println("¿Cuál es el Cpf del propietario que desea eliminar?");
                         cpff1=scan.nextLine();
-                        scan.nextLine();
+                        cpff1=scan.nextLine();
 
                         Iterator<PessoaFuncionario> n=funcionario.iterator();
 

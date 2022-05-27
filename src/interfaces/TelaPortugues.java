@@ -273,7 +273,7 @@ public class TelaPortugues implements Telas{
 
                         System.out.println("Qual o cpf do funcionario que você deseja deletar?");
                         cpff1=scan.nextLine();
-                        scan.nextLine();
+                        cpff1=scan.nextLine();
 
                         Iterator<PessoaFuncionario> n=funcionario.iterator();
 

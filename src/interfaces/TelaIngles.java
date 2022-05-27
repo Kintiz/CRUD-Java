@@ -41,12 +41,12 @@ public class TelaIngles implements Telas{
     
     @Override
     public void print(){
-        System.out.println("Write a number:");
-        System.out.println("1- register:");
-        System.out.println("2- list:");
-        System.out.println("3- update:");
-        System.out.println("4- delete:");
-        System.out.println("5- exit:");
+        System.out.println("Enter a number:");
+        System.out.println("1- Register:");
+        System.out.println("2- List:");
+        System.out.println("3- Update:");
+        System.out.println("4- Delete:");
+        System.out.println("5- Exit:");
     }
 
     @Override
